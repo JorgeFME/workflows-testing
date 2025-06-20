@@ -17,15 +17,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Replace app ID in manifest.json
+      - name: Update app ID in manifest.json to production
         run: |
           sed -i 's/"id": "cargaarchivoexcel"/"id": "cargaarchivoexcel-production"/' webapp/manifest.json
+
+      - name: Update MTA ID to production
+        run: |
+          sed -i 's/^ID: cargaarchivoexcel$/ID: cargaarchivoexcel-production/' mta.yaml
 
       - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git checkout main
-          git add webapp/manifest.json
-          git commit -m "Update app ID to cargaarchivoexcel-production after PR merge" || echo "No changes to commit"
+          git add webapp/manifest.json mta.yaml
+          git commit -m "Update app and MTA ID to production after merge" || echo "No changes to commit"
           git push origin main
