@@ -1,0 +1,102 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "cargaarchivoexcel",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.0",
+      "toolsId": "b322fc2f-56b1-4200-a8d1-bcb71f0f0510"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "cargaarchivoexcel.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "cargaarchivoexcel.view",
+        "async": true,
+        "viewPath": "cargaarchivoexcel.view"
+      },
+      "routes": [
+        {
+          "name": "RouteCargaArchivoExcel",
+          "pattern": ":?query:",
+          "target": [
+            "TargetCargaArchivoExcel"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetCargaArchivoExcel": {
+          "id": "CargaArchivoExcel",
+          "name": "CargaArchivoExcel"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "cargaarchivoexcel.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "cargaarchivoexcel"
+  }
+}
